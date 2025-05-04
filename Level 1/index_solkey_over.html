@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gameCanvas{
+            box-shadow: 10px 10px 20px black;
+        }
+        h1{
+            text-align: center;
+            font-family: comic sans MS;
+            font-size: 45px;
+            color: lightgray;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            height: 100vh;
+            
+           background-image:url(room_background2.jpg);
+           /* background-repeat: no-repeat; */
+           background-size: contain;
+        }
+        .Prev{
+        width: 220px;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        font-size: 30px;
+        background: linear-gradient(#5f3c24,#d1af7a);
+        cursor: pointer;
+    }
+        .Prev:hover{
+        transform: translateY(5px);
+        transition: 0.2s;
+
+    }
+    </style>
+</head>
+<body>
+    <div>
+        
+        <h1>Path to the Key</h1> 
+        <div style="height: 75%;width: 100%;"><canvas id="gameCanvas"></canvas> </div>
+        
+    <div style="height: 20%;width: 100%;" align="center"><a href="gameover.html"><button class="Prev">Back</button></div>
+      
+    </div>
+    <script src="src1/game_solkey.js" type="module"></script>
+
+</body>
+</html> 
+

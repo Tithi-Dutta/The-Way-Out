@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+    <style>
+        .body{
+            height: 100vh;
+            background: url(bg8.jpeg);
+            background-size: 100%;
+            /* background-repeat: no-repeat; */
+            background-position: center;
+        }
+        .center{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+        }
+        td{
+            padding-top: 100px;
+            padding-bottom: 20px;
+            padding-left: 30px;
+            padding-right: 40px;
+        }     
+        .level{
+            width: 220px;
+            height: 50px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-size: 30px;
+            background: linear-gradient(#fffa70,#b2c2bf);
+            cursor: pointer;
+        }
+        .level:hover{
+            transform: translateY(5px);
+            transition: 0.2s;
+
+        }
+        .how_to_play{
+            width: 300px;
+            height: 80px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-left: 1200px;
+            font-size: 40px;
+            background: linear-gradient(#fffa70,#b2c2bf);
+            cursor: pointer;
+        }
+        .how_to_play:hover{
+            transform: translateY(5px);
+            transition: 0.2s;
+
+        }
+        h1{
+            font-size: 100px;
+            font-weight: bolder;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-left: 100px;
+            background: -webkit-linear-gradient(#f7e521,#ffffff);
+            -webkit-text-fill-color:transparent;
+            -webkit-background-clip:text;
+        }
+        .sound{
+            margin-top: 20px;
+            margin-left: 1320px;
+            /* background: linear-gradient(#fffa70,#b2c2bf); */
+            cursor: pointer;
+        }
+        .sound:hover{
+            transform: translateY(5px);
+            transition: 0.2s;
+
+        }
+    </style>
+</head>
+<body class="body">
+    
+    <!-- <bgsound src="gameWin.wav"> -->
+    <button class="how_to_play">How to play?</button>
+    <!-- <h1>A Journey towards Freedom</h1> -->
+    <table class="center">
+        <tr>
+            <td><img src="room.jpg" height="220px" width="220px" style="border: 5px solid rgb(239, 255, 67);"><br><a href="index1.html"><button class="level">Level 1</button></a></td>
+            <td><img src="garden.jpg" height="220px" width="220px" style="border: 5px solid rgb(239, 255, 67);"><br><a href="Level 2/index2.html"><button class="level">Level 2</button></a></td>
+            <td><img src="winterland.jpg" height="220px" width="220px" style="border: 5px solid rgb(239, 255, 67);"><br><button class="level">Level 3</button></td>
+        </tr>
+    </table>
+    <audio loop id="song"><source src="start_page.mp3"></audio>
+    <button onclick=pausemusic() class="sound" id="clk"><img src="sound_on.jpg" id="off" height="100px" width="100px" style="border: 5px solid rgb(239, 255, 67);"></button> 
+    
+    <script>
+        document.getElementById("song").play();
+        
+        function pausemusic()
+        {
+            image=document.getElementById('off');
+            if(document.getElementById('off'))
+            {
+                document.getElementById("song").pause();
+                image.src='sound_off.jpg';
+                
+                setInterval(displayseconds,50);
+                setTimeout(redirect,1);
+                
+            }
+          
+            function displayseconds()
+            {
+                seconds+=1;
+            }
+            function redirect()
+            {
+                window.location.href="main_menu_illusion3.html";
+            }
+        }
+        
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gameCanvas{
+            box-shadow: 10px 10px 20px black;
+        }
+        h1{
+            text-align: center;
+            font-family: comic sans MS;
+            color: rgb(254, 255, 255);
+            font-size: 30px;
+        }
+        body{
+             display: flex;
+            justify-content: center;
+            overflow: hidden;
+            height: 100vh; 
+            
+           background-image:url(garden.jpg);
+           background-size: 100%;
+           background-size: contain;
+        }
+        .Prev{
+        width: 220px;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        font-size: 30px;
+        background: linear-gradient(#2a663b,#b0da83);
+        cursor: pointer;
+    }
+    .Prev:hover{
+        transform: translateY(5px);
+        transition: 0.2s;
+
+    }
+    </style>
+</head>
+<body>
+    <!-- <div id="start-screen" class="screen" style="display:block">
+        <button onclick="startGame()"></button>
+        </div>-->
+    <div>
+        
+        <h1>Path to the Key</h1> 
+        <div style="height: 80%;width: 100%;">
+        <canvas id="gameCanvas"></canvas>
+        <!-- <canvas id="gameCanvas" style="display:none"></canvas> -->
+    </div>
+    <div style="height: 10%;width: 100%;" align="center"><a href="gamewin.html"><button class="Prev">Back</button></div>
+    </div>
+    <script src="src2/game_solkey.js" type="module"></script>
+
+</body>
+</html> 
+

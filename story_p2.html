@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .Next{
+        width: 220px;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        font-size: 30px;
+        background: linear-gradient(#b681c6,#c4f5ae);
+        cursor: pointer;
+    }
+    .Next:hover{
+        transform: translateY(5px);
+        transition: 0.2s;
+
+    }
+    .Prev{
+        width: 220px;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        font-size: 30px;
+        background: linear-gradient(#b681c6,#c4f5ae);
+        cursor: pointer;
+    }
+    .Prev:hover{
+        transform: translateY(5px);
+        transition: 0.2s;
+
+    }
+    body{
+       
+       background-image: url(og_page2.png);
+       background-size: 100%;
+   }
+</style>
+
+<body>    <audio loop id="song"><source src="story_soundf.mp3"></audio>
+
+    <div style="height: 100px;width: 500px;">
+        <div style="height: 630px;width: 1500px;"></div>
+        <div style="height: 100px;width: 1500px;">
+            <div style="height: 100px;width: 750px;float: left;"><a href=story_p1.html><button class="Prev" >Prev</button></a></div>
+            <div style="height: 100px;width: 750px;float: left;" align="right"><a href=story_p3.html><button class="Next">Next</button></a>
+                <a href=main_menu1.html><button class="Next">Skip</button></a></div>
+            
+        </div>
+    </div>
+    <script>document.getElementById("song").play();</script>
+</body>
+</html>
