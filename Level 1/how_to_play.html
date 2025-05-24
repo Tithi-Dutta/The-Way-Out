@@ -1,29 +1,98 @@
 <html>
-    <style>
-    body{
-       
-       background-image: url(how_to_play2.jpg);
-       background-size: 100%;
-    }
-    .Prev{
-        margin-top: 44%;
-        width: 220px;
-        height: 50px;
-        border: none;
-        outline: none;
-        border-radius: 10px;
-        font-size: 30px;
-        background: linear-gradient(#ecdb6e,#90b6af);
-        cursor: pointer;
-    }
-    .Prev:hover{
-        transform: translateY(5px);
-        transition: 0.2s;
-
-    }
-    </style>
-    
+    <head>
+        <style>
+            body {
+                background-image: url(level1_images/how_to_play2.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 100vh;
+                margin: 0;
+                position: relative;
+            }
+            .Prev {
+                position: absolute;
+                bottom: 10vh; /* near bottom */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 220px;
+                height: 50px;
+                border: none;
+                outline: none;
+                border-radius: 10px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 30px;
+                background: linear-gradient(#ecdb6e, #90b6af);
+                cursor: pointer;
+            }
+            .Prev:hover {
+                transform: translateX(-50%) translateY(5px);
+                transition: 0.2s;
+            }
+            .sound {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                cursor: pointer;
+            }
+            .sound:hover {
+                transform: translateY(5px);
+                transition: 0.2s;
+            }
+            @media (max-width: 600px) {
+                .Prev {
+                    width: 60vw;
+                    font-size: 5vw;
+                }
+                .sound img {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+        </style>
+    </head>
     <body>
-        <center><a href="../main_menu_illusion1.html"><button class="Prev">Back</button></center>
+        <a href="../main_menu1.html"><button class="Prev">Back</button></a>
+
+        <!-- Audio -->
+        <audio loop id="song">
+            <source src="../logo.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Sound toggle button -->
+        <button onclick="toggleSound()" class="sound" id="sound-toggle">
+            <img id="sound-icon" src="../images/sound_on.jpg" height="100px" width="100px" style="border: 5px solid rgb(239, 255, 67);">
+        </button>
+
+        <!-- Sound control script -->
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                const audio = document.getElementById("song");
+                const icon = document.getElementById("sound-icon");
+
+                const soundState = localStorage.getItem("soundState");
+
+                if (soundState === "off") {
+                    audio.pause();
+                    icon.src = "../images/sound_off.jpg";
+                } else {
+                    audio.play().catch(() => {});
+                    icon.src = "../images/sound_on.jpg";
+                    localStorage.setItem("soundState", "on");
+                }
+
+                window.toggleSound = function () {
+                    if (audio.paused) {
+                        audio.play();
+                        icon.src = "../images/sound_on.jpg";
+                        localStorage.setItem("soundState", "on");
+                    } else {
+                        audio.pause();
+                        icon.src = "../images/sound_off.jpg";
+                        localStorage.setItem("soundState", "off");
+                    }
+                };
+            });
+        </script>
     </body>
 </html>

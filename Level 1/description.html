@@ -1,34 +1,40 @@
 <html>
+  <head>
     <style>
-    body{
-       
-       background-image: url(lev_1_des.png);
-       background-size: 100%;
-    }
-    .Prev{
-        width: 220px;
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: url(level1_images/lev_1_des.png) no-repeat center center / cover;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+      .Prev {
+        width: 50vw;
+        max-width: 220px;
         height: 50px;
         border: none;
-        outline: none;
         border-radius: 10px;
-        font-size: 30px;
-        background: linear-gradient(#8d7145,#a5957d);
+        font-size: 5vw;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        max-font-size: 30px;
+        background: linear-gradient(#8d7145, #a5957d);
         cursor: pointer;
-    }
-    .Prev:hover{
+        margin-bottom: 5vh;
+      }
+      .Prev:hover {
         transform: translateY(5px);
-        transition: 0.2s;
-    }
+        transition: transform 0.2s;
+      }
+      @media (min-width: 600px) {
+        .Prev {
+          font-size: 24px;
+        }
+      }
     </style>
-    
-    <body>
-        <div>
-            <h1></h1> 
-           
-            <div style="height: 92%;width: 100%;"></div>
-         
-            <div style="height: 8%;width: 100%;" align="center"><a href="index1.html"><button class="Prev">Start</button></div>
-          
-        </div>
-    </body>
+  </head>
+  <body>
+    <a href="index1.html"><button class="Prev">Start</button></a>
+  </body>
 </html>

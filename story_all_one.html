@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Combined Story Pages</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+  body {
+    overflow: hidden;
+  }
+  .page {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: none;
+    color: white;
+    padding: 20px;
+  }
+  .page.active {
+    display: block;
+  }
+
+  /* Unique backgrounds for each page */
+  #page1 {
+    background: url('images/og_page1.png') no-repeat center center/cover;
+  }
+  #page2 {
+    background: url('images/og_page2.png') no-repeat center center/cover;
+  }
+  #page3 {
+    background: url('images/og_page3.png') no-repeat center center/cover;
+  }
+  #page4 {
+    background: url('images/page4f.png') no-repeat center center/cover;
+  }
+  #page5 {
+    background: url('images/og_page5.png') no-repeat center center/cover;
+  }
+
+  /* Buttons */
+  .buttons {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+  }
+  button {
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    transition: transform 0.2s ease;
+  }
+  button:hover {
+    transform: translateY(5px);
+  }
+  /* Different gradients for Next and Prev buttons on each page */
+  #page1 .Next, #page1 .Skip {
+    background: linear-gradient(#8ac1d3,#d3a6d4);
+  }
+  #page1 .Prev {
+    background: linear-gradient(#914e98,#d3a6d4);
+  }
+  #page2 .Next, #page2 .Skip, #page2 .Prev {
+    background: linear-gradient(#b681c6,#c4f5ae);
+  }
+  #page3 .Next, #page3 .Skip, #page3 .Prev {
+    background: linear-gradient(#b37148,#ddcca7);
+  }
+  #page4 .Next, #page4 .Skip, #page4 .Prev {
+    background: linear-gradient(#a166b8,#b391c2);
+  }
+  #page5 .Next {
+    background: linear-gradient(#8e7242,#93928d);
+  }
+  #page5 .Prev {
+    background: linear-gradient(#fffa70,#b2c2bf);
+  }
+
+</style>
+</head>
+<body>
+
+<audio loop id="song" autoplay>
+  <source src="storyline.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Story Pages -->
+<div id="page1" class="page active">
+  <!-- <h1>Story Page 1</h1> -->
+  <!-- Your original page1 content here -->
+
+  <div class="buttons">
+    <!-- <button class="Prev" disabled>Prev</button> -->
+    <div>
+      <button class="Next">Next</button>
+      <a href="logo.html"><button class="Skip">Skip</button></a>
+    </div>
+  </div>
+</div>
+
+<div id="page2" class="page">
+  <!-- <h1>Story Page 2</h1> -->
+  <!-- Your original page2 content here -->
+
+  <div class="buttons">
+    <button class="Prev">Prev</button>
+    <div>
+      <button class="Next">Next</button>
+      <a href="logo.html"><button class="Skip">Skip</button></a>
+    </div>
+  </div>
+</div>
+
+<div id="page3" class="page">
+  <!-- <h1>Story Page 3</h1> -->
+  <!-- Your original page3 content here -->
+
+  <div class="buttons">
+    <button class="Prev">Prev</button>
+    <div>
+      <button class="Next">Next</button>
+      <a href="logo.html"><button class="Skip">Skip</button></a>
+    </div>
+  </div>
+</div>
+
+<div id="page4" class="page">
+  <!-- <h1>Story Page 4</h1> -->
+  <!-- Your original page4 content here -->
+
+  <div class="buttons">
+    <button class="Prev">Prev</button>
+    <div>
+      <button class="Next">Next</button>
+      <a href="logo.html"><button class="Skip">Skip</button></a>
+    </div>
+  </div>
+</div>
+
+<div id="page5" class="page">
+  <!-- <h1>Story Page 5</h1> -->
+
+<div class="buttons">
+  <button class="Prev">Prev</button>
+  <!-- Change Next button to a link to logo.html -->
+  <a href="logo.html"><button class="Next">Next</button></a>
+  <!-- Skip button can be hidden or removed here -->
+</div>
+
+</div>
+
+<script>
+  const pages = document.querySelectorAll('.page');
+  let currentIndex = 0;
+
+  function showPage(index) {
+    if (index < 0 || index >= pages.length) return;
+    pages[currentIndex].classList.remove('active');
+    currentIndex = index;
+    pages[currentIndex].classList.add('active');
+  }
+
+  pages.forEach((page, idx) => {
+    const nextBtn = page.querySelector('.Next');
+    const prevBtn = page.querySelector('.Prev');
+    const skipBtn = page.querySelector('.Skip');
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (currentIndex < pages.length - 1) {
+          showPage(currentIndex + 1);
+        }
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          showPage(currentIndex - 1);
+        }
+      });
+    }
+
+    if (skipBtn) {
+      skipBtn.addEventListener('click', () => {
+        // Skip to "main menu" or another section
+        
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

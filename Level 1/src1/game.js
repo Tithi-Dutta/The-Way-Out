@@ -9,7 +9,7 @@ export {timer2};
 // import { coinc2 } from "./Player.js";
 //import { max } from "./score.js";
 var max = 0;
- const TimeElement = document.querySelector(".Time");
+// const TimeElement = document.querySelector(".Time");
 
 /////////////////////////////////
 
@@ -33,9 +33,7 @@ const gameWinSound = new Audio("sounds1/gamewin.mp3");
 function gameLoop()
 {
     // timer++;
-    //  TimeElement.innerHTML=`Time: ${timer}`;
-    
-    
+    // TimeElement.innerHTML=`Time: ${timer}`;
 
     tileMap.draw(ctx);
     drawGameEnd();

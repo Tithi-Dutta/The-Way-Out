@@ -1,29 +1,123 @@
 <html>
+<head>
     <style>
-    body{
-       
-       background-image: url(how_to_play.jpg);
-       background-size: 100%;
-    }
-    .Prev{
-        margin-top: 40%;
-        width: 220px;
-        height: 50px;
-        border: none;
-        outline: none;
-        border-radius: 10px;
-        font-size: 30px;
-        background: linear-gradient(#ecdb6e,#90b6af);
-        cursor: pointer;
-    }
-    .Prev:hover{
-        transform: translateY(5px);
-        transition: 0.2s;
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url(level2_images/how_to_play.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position: relative;
+        }
+        .Prev {
+            width: 220px;
+            height: 50px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 30px;
+            background: linear-gradient(#ecdb6e,#90b6af);
+            cursor: pointer;
 
-    }
+            /* Fixed bottom center */
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0; /* reset margin */
+            z-index: 10;
+        }
+        .Prev:hover {
+            transform: translate(-50%, 5px);
+            transition: 0.2s;
+        }
+        .sound {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .sound:hover {
+            transform: translateY(5px);
+            transition: 0.2s;
+        }
+
+        /* Responsive sizes */
+        @media (max-width: 768px) {
+            .Prev {
+                width: 180px;
+                height: 45px;
+                font-size: 24px;
+            }
+            .sound img {
+                width: 70px !important;
+                height: 70px !important;
+                border-width: 3px !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .Prev {
+                width: 140px;
+                height: 40px;
+                font-size: 20px;
+            }
+            .sound {
+                top: 10px;
+                right: 10px;
+            }
+            .sound img {
+                width: 50px !important;
+                height: 50px !important;
+                border-width: 2px !important;
+            }
+        }
     </style>
-    
-    <body>
-        <center><a href="../main_menu_illusion2.html"><button class="Prev">Back</button></center>
-    </body>
+</head>
+<body>
+    <a href="../main_menu2.html"><button class="Prev">Back</button></a>
+
+    <!-- Audio -->
+    <audio loop id="song">
+        <source src="../logo.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Sound toggle button -->
+    <button onclick="toggleSound()" class="sound" id="sound-toggle">
+        <img id="sound-icon" src="../images/sound_on.jpg" height="100px" width="100px" style="border: 5px solid rgb(239, 255, 67);">
+    </button>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById("song");
+            const icon = document.getElementById("sound-icon");
+
+            const soundState = localStorage.getItem("soundState");
+
+            if (soundState === "off") {
+                audio.pause();
+                icon.src = "../images/sound_off.jpg";
+            } else {
+                audio.play().catch(() => {});
+                icon.src = "../images/sound_on.jpg";
+                localStorage.setItem("soundState", "on");
+            }
+
+            window.toggleSound = function () {
+                if (audio.paused) {
+                    audio.play();
+                    icon.src = "../images/sound_on.jpg";
+                    localStorage.setItem("soundState", "on");
+                } else {
+                    audio.pause();
+                    icon.src = "../images/sound_off.jpg";
+                    localStorage.setItem("soundState", "off");
+                }
+            };
+        });
+    </script>
+</body>
 </html>

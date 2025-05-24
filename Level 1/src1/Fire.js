@@ -21,7 +21,6 @@ export default class Fire {
             this.y,
             this.tileSize,
             this.tileSize);
-        
     }
     #loadFireImages() {
         const fireImg1 = new Image();

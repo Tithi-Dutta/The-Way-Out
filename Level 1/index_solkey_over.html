@@ -6,41 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #gameCanvas{
-            box-shadow: 10px 10px 20px black;
+        body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        height: 100vh;
+        margin: 0;
+        background-image: url(level1_images/room_background2.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        flex-direction: column;
+        padding: 20px;
+        box-sizing: border-box;
         }
-        h1{
-            text-align: center;
-            font-family: comic sans MS;
-            font-size: 45px;
-            color: lightgray;
+
+        h1 {
+        text-align: center;
+        font-family: Comic Sans MS;
+        font-size: 40px;
+        color: lightgray;
+        margin-bottom: 20px;
         }
-        body{
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-            height: 100vh;
-            
-           background-image:url(room_background2.jpg);
-           /* background-repeat: no-repeat; */
-           background-size: contain;
+
+        #gameCanvas {
+        box-shadow: 10px 10px 20px black;
+        width: 90vw;
+        max-width: 900px;
+        height: auto;
+        aspect-ratio: 16 / 9;
         }
-        .Prev{
+
+        .Prev {
         width: 220px;
         height: 50px;
         border: none;
         outline: none;
         border-radius: 10px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-size: 30px;
-        background: linear-gradient(#5f3c24,#d1af7a);
+        background: linear-gradient(#5f3c24, #d1af7a);
         cursor: pointer;
-    }
-        .Prev:hover{
+        margin-top: 20px;
+        }
+
+        .Prev:hover {
         transform: translateY(5px);
         transition: 0.2s;
+        }
 
-    }
-    </style>
+        @media (max-width: 600px) {
+        h1 {
+            font-size: 28px;
+        }
+
+        .Prev {
+            font-size: 24px;
+            width: 60%;
+        }
+
+        #gameCanvas {
+            width: 100%;
+        }
+     }
+  </style>
 </head>
 <body>
     <div>

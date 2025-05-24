@@ -4,16 +4,17 @@
         <style>
             body{
                 height: 100vh;
-                background: url(gameover_board1.jpg);
+                background: url(level2_images/gameover_board1.jpg);
                 background-size: 100%;
                 background-repeat: no-repeat;
                 background-position: center;
+                background-size: cover;
                 }
             .button {
               border: none;
               color: white;
               padding: 20px 34px;
-              text-align: center;
+              align-items: center;
               font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
               text-decoration: none;
               display: inline-block;
@@ -24,9 +25,9 @@
             .button1 {
               border: none;
               color: white;
-              margin-top: 60px;
+              margin-top: 40px;
               margin-left: 140px;
-              /* margin-right: 25px; */
+              align-items: center;
               font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
               text-decoration: none;
               display: inline-block;
@@ -36,7 +37,7 @@
             .button2 {
               border: none;
               color: white;
-              margin-top: 60px;
+              margin-top: 40px;
               margin-left: 100px;
               /* margin-right: 25px; */
               font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -51,6 +52,19 @@
                 font-size: xx-large;
                 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             } 
+            @media (max-width: 768px) {
+                .button, .button1, .button2 {
+                    width: 100%;; /* smaller font */
+                }
+                .button1 {
+                    width: 100%;
+                }
+                .button2 {
+                    width: 100%; /* reduce margin */
+                }
+                /* Optional: prevent wrapping */
+                
+                }
           </style>
     </head>
     

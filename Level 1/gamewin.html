@@ -1,11 +1,11 @@
 <html>
     <head>
-        <title>Game Over</title>
+        <title>Game Win</title>
         <style>
             body{
                 height: 100vh;
-                background: url(gameover_board2.jpg);
-                background-size: 100%;
+                background: url(level1_images/gameover_board2.jpg);
+                background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
                 }
@@ -67,6 +67,33 @@
                 font-size: 30px;
                 background: linear-gradient(#b9936c,#dac292);
             }
+            @media (max-width: 768px) {
+                .left-div,
+                .right-div {
+                    display: none;
+                }
+
+                .middle-div {
+                    width: 100% !important;
+                    float: none !important;
+                    padding: 10px;
+                }
+
+                header {
+                    margin-top: 80px;
+                    font-size: 28px;
+                }
+
+                .button {
+                    font-size: 36px;
+                    padding: 16px 28px;
+                }
+
+                .button1 {
+                    font-size: 28px;
+                    padding: 14px 26px;
+                }
+            }
           </style>
     </head>
     
@@ -106,3 +133,5 @@
         
     </body>
 </html>
+
+

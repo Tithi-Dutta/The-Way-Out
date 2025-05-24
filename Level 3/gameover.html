@@ -4,10 +4,11 @@
         <style>
             body{
                 height: 100vh;
-                background: url(gameover_board.jpg);
+                background: url(level3_images/gameover_board.jpg);
                 background-size: 100%;
                 background-repeat: no-repeat;
                 background-position: center;
+                background-size: cover;
                 }
             .button {
               border: none;
@@ -51,6 +52,17 @@
                 font-size: xx-large;
                 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             } 
+            @media (max-width: 480px) {
+                header h1 {
+                font-size: 2rem;
+                }
+
+                .button, .button1, .button2 {
+                width: 100%;
+                }
+
+                
+            }
           </style>
     </head>
     

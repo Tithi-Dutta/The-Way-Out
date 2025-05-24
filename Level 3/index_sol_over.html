@@ -1,62 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #gameCanvas{
-            box-shadow: 10px 10px 20px black;
-        }
-        h1{
-            text-align: center;
-            font-family: comic sans MS;
-            color: rgb(255, 249, 249);
-            font-size: 30px;
-        }
-        body{
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-            height: 100vh;
-            
-           background-image:url(snow_bg2.jpg);
-           /* background-repeat: no-repeat; */
-           background-size: contain;
-        }
-        /* h1{
-            margin-top: 100px;
-        } */
-        .Prev{
-        width: 220px;
-        height: 50px;
-        border: none;
-        outline: none;
-        border-radius: 10px;
-        font-size: 30px;
-        background: linear-gradient(#726eec,#90b6af);
-        cursor: pointer;
-    }
-    .Prev:hover{
-        transform: translateY(5px);
-        transition: 0.2s;
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Path to the Treasure</title>
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* vertical centering */
+    height: 100vh;
+    background-image: url(level3_images/snow_bg2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: rgb(255, 249, 249);
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding: 20px;
+  }
 
+  .container {
+    text-align: center;
+    max-width: 900px;
+    width: 90vw;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  #gameCanvas {
+    box-shadow: 10px 10px 20px black;
+    /* Internal fixed resolution */
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* so canvas never taller than 80% viewport height */
+    display: block;
+    margin: 0 auto;
+  }
+
+  .Prev {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    background: linear-gradient(#726eec, #90b6af);
+    cursor: pointer;
+    margin: 30px auto 0;
+    transition: transform 0.2s ease;
+    display: block;
+  }
+  a{
+    text-decoration: none;
+  }
+  .Prev:hover {
+    transform: translateY(5px);
+  }
+
+  /* Responsive fonts and button sizes */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 24px;
+      margin-bottom: 15px;
     }
-    </style>
+    .Prev {
+      width: 60vw;
+      max-width: 220px;
+      font-size: 24px;
+      height: 45px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .Prev {
+      width: 80vw;
+      font-size: 20px;
+      height: 40px;
+    }
+    h1 {
+      font-size: 20px;
+    }
+  }
+</style>
 </head>
 <body>
-    
-        <div>
-        <h1>Path to the Treasure</h1> 
-       
-        <div><canvas id="gameCanvas"></canvas></div>
-     
-        <div style="height: 10%;width: 100%;" align="center"><a href="gameover.html"><button class="Prev">Back</button></div>
-      
-    </div>
-    <script src="src3/game_sol.js" type="module"></script>
 
+  <div class="container">
+    <h1>Path to the Treasure</h1>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <a href="gameover.html"><button class="Prev">Back</button></a>
+  </div>
+
+  <script src="src3/game_sol.js" type="module"></script>
 </body>
-</html> 
-
+</html>

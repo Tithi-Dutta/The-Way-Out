@@ -4,8 +4,9 @@
         <style>
             body{
                 height: 100vh;
-                background: url(gameover_board.jpg);
-                background-size: 100%;
+                margin: 0;
+                background: url(level1_images/gameover_board.jpg);
+                background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
                 }
@@ -27,6 +28,29 @@
                 font-size: 35px;
                 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             } 
+            /* Responsive layout for smaller screens */
+            @media (max-width: 768px) {
+                .left-div, .right-div {
+                    display: none;
+                }
+
+                .middle-div {
+                    width: 100% !important;
+                    float: none !important;
+                    padding: 10px;
+                }
+
+                header {
+                    margin-top: 80px;
+                    font-size: 28px;
+                }
+
+                .button {
+                    font-size: 28px;
+                    padding: 16px 24px;
+                    width: 90%;
+                }
+            }
           </style>
     </head>
     

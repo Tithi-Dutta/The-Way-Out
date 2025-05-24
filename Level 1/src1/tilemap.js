@@ -281,8 +281,7 @@ export default class TileMap {
       if(Number.isInteger(row) && Number.isInteger(column))
       {
         if(this.maze[row][column] == 7){
-          // coin_collect.play();
-          //  setTimeout(() => coin_collect.play(), 100); 
+          coin_collect.play();
           this.maze[row][column]=0;
           return true;
         }

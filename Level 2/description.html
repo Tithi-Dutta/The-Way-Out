@@ -1,36 +1,60 @@
 <html>
-    <style>
-    body{
-       
-       background-image: url(lev_2_des.png);
-       background-size: 100%;
-       background-repeat: repeat-x;
-    }
-    .Prev{
-        width: 220px;
-        height: 50px;
-        border: none;
-        outline: none;
-        border-radius: 10px;
-        font-size: 30px;
-        background: linear-gradient(#7bc36c,#a9dfa9);
-        cursor: pointer;
-    }
-    .Prev:hover{
-        transform: translateY(5px);
-        transition: 0.2s;
-    }
-    </style>
-    
-        <body>
+    <head>
+        <style>
+            body {
+                background-image: url(level2_images/lev_2_des.png);
+                background-size: 100%;
+                background-repeat: repeat-x;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+            .Prev {
+                width: 220px;
+                height: 50px;
+                border: none;
+                outline: none;
+                border-radius: 10px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 30px;
+                background: linear-gradient(#7bc36c, #a9dfa9);
+                cursor: pointer;
+                transition: transform 0.2s;
+            }
+            .Prev:hover {
+                transform: translateY(5px);
+            }
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .Prev {
+                    width: 160px;
+                    height: 45px;
+                    font-size: 24px;
+                }
+                div[style*="height: 8%"] {
+                    height: auto !important;
+                    padding: 10px 0;
+                }
+                div[style*="height: 92%"] {
+                    height: auto !important;
+                }
+            }
+            @media (max-width: 480px) {
+                .Prev {
+                    width: 120px;
+                    height: 40px;
+                    font-size: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
         <div>
             <h1></h1> 
-           
             <div style="height: 92%;width: 100%;"></div>
-         
-            <div style="height: 8%;width: 100%;" align="center"><a href="index2.html"><button class="Prev">Start</button></div>
-          
+            <div style="height: 8%;width: 100%;" align="center">
+                <a href="index2.html"><button class="Prev">Start</button></a>
+            </div>
         </div>
     </body>
-</html>
 </html>

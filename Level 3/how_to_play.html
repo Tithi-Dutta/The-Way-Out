@@ -1,29 +1,132 @@
-<html>
-    <style>
-    body{
-       
-       background-image: url(how_to_play.jpg);
-       background-size: 100%;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Play</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: url(level3_images/how_to_play.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
     }
-    .Prev{
-        margin-top: 40%;
-        width: 220px;
-        height: 50px;
-        border: none;
-        outline: none;
-        border-radius: 10px;
-        font-size: 30px;
-        background: linear-gradient(#ecdb6e,#90b6af);
-        cursor: pointer;
-    }
-    .Prev:hover{
-        transform: translateY(5px);
-        transition: 0.2s;
 
+    a {
+      text-decoration: none;
     }
-    </style>
-    
-    <body>
-        <center><a href="../main_menu3.html"><button class="Prev">Back</button></center>
-    </body>
+
+    .Prev {
+      width: 220px;
+      height: 50px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 30px;
+      background: linear-gradient(#ecdb6e, #90b6af);
+      cursor: pointer;
+    }
+
+    .Prev:hover {
+      transform: translateY(5px);
+      transition: 0.2s;
+    }
+
+    .sound {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      padding: 0;
+      background: none;
+      border: none;
+    }
+
+    .sound img {
+      width: 70px;
+      height: 70px;
+      border: 4px solid rgb(239, 255, 67);
+      border-radius: 8px;
+    }
+
+    .back-button-wrapper {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    @media (max-width: 600px) {
+      .Prev {
+        width: 180px;
+        height: 45px;
+        font-size: 24px;
+      }
+
+      .sound img {
+        width: 50px;
+        height: 50px;
+        border-width: 3px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Back Button -->
+  <div class="back-button-wrapper">
+    <a href="../main_menu3.html"><button class="Prev">Back</button></a>
+  </div>
+
+  <!-- Audio -->
+  <audio loop id="song">
+    <source src="../logo.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Sound Toggle Button -->
+  <button onclick="toggleSound()" class="sound" id="sound-toggle">
+    <img id="sound-icon" src="../images/sound_on.jpg" alt="Sound Toggle" />
+  </button>
+
+  <!-- Script -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById("song");
+      const icon = document.getElementById("sound-icon");
+      const soundState = localStorage.getItem("soundState");
+
+      if (soundState === "off") {
+        audio.pause();
+        icon.src = "../images/sound_off.jpg";
+      } else {
+        audio.play().catch(() => {});
+        icon.src = "../images/sound_on.jpg";
+        localStorage.setItem("soundState", "on");
+      }
+
+      window.toggleSound = function () {
+        if (audio.paused) {
+          audio.play();
+          icon.src = "../images/sound_on.jpg";
+          localStorage.setItem("soundState", "on");
+        } else {
+          audio.pause();
+          icon.src = "../images/sound_off.jpg";
+          localStorage.setItem("soundState", "off");
+        }
+      };
+    });
+  </script>
+
+</body>
 </html>

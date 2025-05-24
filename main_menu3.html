@@ -1,128 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Menu</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url(images/bg8.jpeg) no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Garamond (serif)'; 
+      /* font-family: 'Press Start 2P', monospace; */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-    <style>
-        .body{
-            height: 100vh;
-            background: url(bg8.jpeg);
-            background-size: 100%;
-            /* background-repeat: no-repeat; */
-            background-position: center;
-        }
-        .center{
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 50px;
-        }
-        td{
-            padding-top: 100px;
-            padding-bottom: 20px;
-            padding-left: 30px;
-            padding-right: 40px;
-        }     
-        .level{
-            width: 220px;
-            height: 50px;
-            border: none;
-            outline: none;
-            border-radius: 10px;
-            margin-top: 30px;
-            font-size: 30px;
-            background: linear-gradient(#fffa70,#b2c2bf);
-            cursor: pointer;
-        }
-        .level:hover{
-            transform: translateY(5px);
-            transition: 0.2s;
+    .header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
-        }
-        .how_to_play{
-            width: 300px;
-            height: 80px;
-            border: none;
-            outline: none;
-            border-radius: 10px;
-            margin-top: 20px;
-            margin-left: 1200px;
-            font-size: 40px;
-            background: linear-gradient(#fffa70,#b2c2bf);
-            cursor: pointer;
-        }
-        .how_to_play:hover{
-            transform: translateY(5px);
-            transition: 0.2s;
+    .how_to_play {
+      width: 200px;
+      height: 60px;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+      font-size: 22px;
+      background: linear-gradient(#fffa70, #b2c2bf);
+      cursor: pointer;
+    }
 
-        }
-        h1{
-            font-size: 100px;
-            font-weight: bolder;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin-left: 100px;
-            background: -webkit-linear-gradient(#f7e521,#ffffff);
-            -webkit-text-fill-color:transparent;
-            -webkit-background-clip:text;
-        }
-        .sound{
-            margin-top: 20px;
-            margin-left: 1320px;
-            /* background: linear-gradient(#fffa70,#b2c2bf); */
-            cursor: pointer;
-        }
-        .sound:hover{
-            transform: translateY(5px);
-            transition: 0.2s;
+    .how_to_play:hover {
+      transform: translateY(5px);
+      transition: 0.2s;
+    }
 
-        }
-    </style>
+    .sound {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .sound img {
+      height: 60px;
+      width: 60px;
+      border: 3px solid rgb(239, 255, 67);
+    }
+
+    h1 {
+      font-size: 60px;
+      text-align: center;
+      background: -webkit-linear-gradient(#f7e521, #ffffff);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      margin: 10px;
+    }
+
+    .level-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .level-card {
+      text-align: center;
+    }
+
+    .level-card img {
+      width: 200px;
+      height: 200px;
+      border: 5px solid rgb(239, 255, 67);
+    }
+
+    .level {
+      width: 200px;
+      height: 45px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+      font-size: 24px;
+      background: linear-gradient(#fffa70, #b2c2bf);
+      cursor: pointer;
+    }
+
+    .level:hover {
+      transform: translateY(5px);
+      transition: 0.2s;
+    }
+
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      .how_to_play {
+        width: 160px;
+        font-size: 18px;
+      }
+
+      .level-card img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .level {
+        width: 150px;
+        font-size: 18px;
+      }
+
+      .sound img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .how_to_play {
+        margin: 0;
+      }
+
+      .sound {
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
-<body class="body">
-    
-    <!-- <bgsound src="gameWin.wav"> -->
-    <a href="../Level 3/how_to_play.html"><button class="how_to_play">How to play?</button></a>
-    <!-- <h1>A Journey towards Freedom</h1> -->
-    <table class="center">
-        <tr>
-            <td><img src="room.jpg" height="220px" width="220px" style="border: 5px solid rgb(239, 255, 67);"><br><a href="../Level 1/description.html"><button class="level">Level 1</button></a></td>
-            <td><img src="garden.jpg" height="220px" width="220px" style="border: 5px solid rgb(239, 255, 67);"><br><a href="../Level 2/description.html"><button class="level">Level 2</button></a></td>
-            <td><img src="winterland.jpg" height="220px" width="220px" style="border: 5px solid rgb(239, 255, 67);"><br><a href="../Level 3/description.html"><button class="level">Level 3</button></a></td>
-        </tr>
-    </table>
-    <audio loop id="song"><source src="logo.mp3"></audio>
-    <button onclick=pausemusic() class="sound" id="clk"><img src="sound_on.jpg" id="off" height="100px" width="100px" style="border: 5px solid rgb(239, 255, 67);"></button> 
-    
-    <script>
-        document.getElementById("song").play();
-        
-        function pausemusic()
-        {
-            image=document.getElementById('off');
-            if(document.getElementById('off'))
-            {
-                document.getElementById("song").pause();
-                image.src='sound_off.jpg';
-                
-                setInterval(displayseconds,50);
-                setTimeout(redirect,1);
-                
-            }
-          
-            function displayseconds()
-            {
-                seconds+=1;
-            }
-            function redirect()
-            {
-                window.location.href="main_menu_illusion3.html";
-            }
+
+<body>
+  <div class="header">
+    <a href="Level 3/how_to_play.html"><button class="how_to_play">How to play?</button></a>
+    <button onclick="toggleSound()" class="sound" id="sound-toggle">
+      <img id="sound-icon" src="images/sound_on.jpg" alt="Sound Icon">
+    </button>
+  </div>
+
+  <h1>~The Way Out~</h1>
+
+  <div class="level-container">
+    <div class="level-card">
+      <img src="images/room.jpg" alt="Level 1"><br>
+      <a href="Level 1/description.html"><button class="level">Level 1</button></a>
+    </div>
+
+    <div class="level-card">
+      <img src="images/garden.jpg" alt="Level 2"><br>
+      <a href="Level 2/description.html"><button class="level">Level 2</button></a>
+    </div>
+
+    <div class="level-card">
+      <img src="images/winterland.jpg" alt="Level 3"><br>
+      <a href="Level 3/description.html"><button class="level">Level 3</button></a>
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <audio loop id="song">
+    <source src="logo.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Sound Script -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById("song");
+      const icon = document.getElementById("sound-icon");
+
+      const soundState = localStorage.getItem("soundState");
+
+      if (soundState === "off") {
+        audio.pause();
+        icon.src = "images/sound_off.jpg";
+      } else {
+        audio.play().catch(() => { });
+        icon.src = "images/sound_on.jpg";
+        localStorage.setItem("soundState", "on");
+      }
+
+      window.toggleSound = function () {
+        if (audio.paused) {
+          audio.play();
+          icon.src = "images/sound_on.jpg";
+          localStorage.setItem("soundState", "on");
+        } else {
+          audio.pause();
+          icon.src = "images/sound_off.jpg";
+          localStorage.setItem("soundState", "off");
         }
-        
-    </script>
-</div>
+      };
+    });
+  </script>
 </body>
 </html>

@@ -1,68 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #gameCanvas{
-            box-shadow: 10px 10px 20px black;
-        }
-        /* h1{
-            text-align: center;
-            font-family: comic sans MS;
-            color: lightgray;
-        } */
-        body{
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-            height: 100vh;
-            
-           background-image:url(room_background2.jpg);
-           /* background-repeat: no-repeat; */
-           background-size: contain;
-        }
-        .Score
-        {
-            width: 220px;
-            height: 50px;
-            border: none;
-            outline: none;
-            border-radius: 10px;
-            margin-top: 30px;
-            font-size: 30px;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(#b9936c,#dac292);
-        }
-       .Time
-       {
-            width: 300px;
-            height: 50px;
-            border: none;
-            outline: none;
-            border-radius: 10px;
-            margin-top: 30px;
-            font-size: 30px;
-            background: linear-gradient(#b9936c,#dac292);
-       }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: url(level1_images/room_background2.jpg) no-repeat center center;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Top bar with time and score */
+    .top-bar {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .Time, .Score {
+      border: none;
+      border-radius: 10px;
+      height: 50px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 30px;
+      padding: 0 20px;
+      background: linear-gradient(#b9936c, #dac292);
+      color: black;
+    }
+
+    /* Center canvas in remaining space */
+    .canvas-wrapper {
+      flex: 1; /* take remaining height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #gameCanvas {
+      width: 90vw;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      box-shadow: 10px 10px 20px black;
+    }
+
+    @media (max-width: 600px) {
+      .Time, .Score {
+        font-size: 22px;
+        height: 45px;
+        padding: 0 10px;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div style="height: 100%;width: 100%;"> 
 
-        <div style="height: 15%;width: 100%;">    
-            <div style="height:10%;width: 50%;float: left;"><button class="Time">Time: 0</button></div>
-            <div style="height:10%;width: 50%;float: left;" align="right"><button id="score" class="Score">Score: 0</button></div>
-        </div>
+  <div class="top-bar">
+    <button class="Time">Time: 00:00:00:00</button>
+    <button class="Score" id="score">Score: 0</button>
+  </div>
 
-        <div style="height: 85%;width: 100%;"><center><canvas id="gameCanvas"></center></canvas> </div>
+  <div class="canvas-wrapper">
+    <canvas id="gameCanvas"></canvas>
+  </div>
 
- 
-    </div>
-    <script src="src1/game.js" type="module"></script>
-
+  <script src="src1/game.js" type="module"></script>
 </body>
-</html> 
-
+</html>

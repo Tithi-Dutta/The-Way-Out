@@ -1,69 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #gameCanvas{
-            box-shadow: 10px 10px 20px black;
-        }
-        h1{
-            text-align: center;
-            font-family: comic sans MS;
-            color: lightgray;
-        }
-        body{
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-            height: 100vh;
-            
-           background-image:url(garden.jpg);
-           /* background-repeat: no-repeat; */
-           background-size: contain;
-        }
-        
-        .Score
-        {
-            width: 220px;
-            height: 50px;
-            border: none;
-            outline: none;
-            border-radius: 10px;
-            margin-top: 30px;
-            font-size: 30px;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(#82b74b,#b1cbbb);
-        }
-       .Time
-       {
-            width: 220px;
-            height: 50px;
-            border: none;
-            outline: none;
-            border-radius: 10px;
-            margin-top: 30px;
-            font-size: 30px;
-            background: linear-gradient(#82b74b,#b1cbbb);
-       }
-    </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Game</title>
+  <style>
+    /* Body */
+    body {
+      margin: 0;
+      height: 100vh;
+      background-image: url(level2_images/garden.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      overflow-x: hidden;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: lightgray;
+
+      /* For vertical centering */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Buttons container spans full width of page */
+    .buttons-container {
+      width: 100vw; /* full viewport width */
+      padding: 0 20px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      max-width: 100%;
+    }
+
+    button.Time,
+    button.Score {
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1.8rem;
+      cursor: default;
+      padding: 0 20px;
+      color: #fff;
+      background: linear-gradient(#82b74b, #b1cbbb);
+      height: 50px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 300px;
+    }
+
+    /* Wrapper for canvas and title - centered with max width */
+    .wrapper {
+      width: 100%;
+      max-width: 900px;
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-size: 2rem;
+      margin: 0 0 15px 0;
+      color: white;
+      user-select: none;
+    }
+
+    #gameCanvas {
+      width: 100%;
+      max-height: 70vh;
+      height: auto;
+      box-shadow: 10px 10px 20px black;
+      display: block;
+      max-width: 100%;
+    }
+
+    /* Responsive font sizes for smaller screens */
+    @media (max-width: 600px) {
+      button.Time,
+      button.Score {
+        font-size: 1.2rem;
+        height: 45px;
+        max-width: 180px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      button.Time,
+      button.Score {
+        font-size: 1rem;
+        height: 40px;
+        max-width: 140px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div style="height: 100%;width: 100%;"> 
+  <!-- Buttons full width at top -->
+  <div class="buttons-container">
+    <button class="Time">Time: 00:00:00:00</button>
+    <button class="Score">Score: 0</button>
+  </div>
 
-        <div style="height: 15%;width: 100%;">    
-            <div style="height:10%;width: 50%;float: left;"><button class="Time">Time: 0</button></div>
-            <div style="height:10%;width: 50%;float: left;" align="right"><button class="Score">Score: 0</button></div>
-        </div>
+  <!-- Wrapper with title and canvas centered -->
+  <div class="wrapper">
+    
+    <canvas id="gameCanvas"></canvas>
+  </div>
 
-        <div style="height: 85%;width: 100%;"><center><canvas id="gameCanvas"></center></canvas> </div>
-
- 
-    </div>
-    <script src="src2/game2.js" type="module"></script>
-
+  <script src="src2/game2.js" type="module"></script>
 </body>
-</html> 
-
+</html>

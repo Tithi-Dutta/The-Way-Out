@@ -3,11 +3,15 @@ import MovingDirection from "./MovingDirection2.js";
 //counting score
 import {score} from "./game2.js";
 var score2 = 0;
+var timer1=0;
 var timer = 0;
 export {score2};
 const ScoreElement=document.querySelector(".Score");
 const TimeElement = document.querySelector(".Time");
-
+export {timer};
+let startTime = 0;
+let elapsedTime = 0;
+let timerInterval;
 
 
 
@@ -31,11 +35,29 @@ export default class Player {
 
       this.madeFirstMove = false;
     }  
+    stop() {
+          clearInterval(timerInterval);
+      }
+      
+    reset() {
+        clearInterval(timerInterval);
+        elapsedTime = 0;
+        return formatTime(elapsedTime);
+    }
     
+    formatTime(ms) {
+        const pad = num => num.toString().padStart(2, '0');
+        const hh = pad(Math.floor(ms / 3600000));
+        const mm = pad(Math.floor((ms % 3600000) / 60000));
+        const ss = pad(Math.floor((ms % 60000) / 1000));
+        const mss = pad(Math.floor((ms % 1000) / 10));
+        return `${hh}:${mm}:${ss}.${mss}`;
+    }
 
     draw(ctx, pause) {
        if(!pause){
-        timer++;
+        timer1++;
+        timer=this.formatTime(timer1);
         TimeElement.innerHTML=`Time: ${timer}`;
         this.#move();
         this.#danimate();

@@ -4,18 +4,14 @@ var coinstore = 0;
 export {coinstore };
 import {  coinc } from "./game.js";
 const ScoreElement=document.querySelector(".Score");
+var timer1=0;
 var timer = 0;
-var timer1 = 0;
 const TimeElement = document.querySelector(".Time");
 export {timer};
 
 let startTime = 0;
 let elapsedTime = 0;
 let timerInterval;
-
-// const coin_collect = new Audio("sounds1/coin collection.mp3");
-const coinSounds = Array.from({ length: 10 }, () => new Audio("sounds1/coin collection.mp3"));
-let currentSoundIndex = 0;
 
 export default class Player {
     constructor(x, y, tileSize, velocity, tileMap) {
@@ -36,35 +32,33 @@ export default class Player {
 
       this.madeFirstMove = false;
     }  
-    
-
-     start() {
+    start() {
       startTime = Date.now() - elapsedTime;
       timerInterval = setInterval(() => {
           elapsedTime = Date.now() - startTime;
           console.log(formatTime(elapsedTime));
       }, 10);
-  }
+    }
   
-  stop() {
-      clearInterval(timerInterval);
-  }
-  
-  reset() {
-      clearInterval(timerInterval);
-      elapsedTime = 0;
-      return formatTime(elapsedTime);
-  }
-  
-  formatTime(ms) {
-      const pad = num => num.toString().padStart(2, '0');
-      const hh = pad(Math.floor(ms / 3600000));
-      const mm = pad(Math.floor((ms % 3600000) / 60000));
-      const ss = pad(Math.floor((ms % 60000) / 1000));
-      const mss = pad(Math.floor((ms % 1000) / 10));
-      return `${hh}:${mm}:${ss}.${mss}`;
-  }
+    stop() {
+        clearInterval(timerInterval);
+    }
     
+    reset() {
+        clearInterval(timerInterval);
+        elapsedTime = 0;
+        return formatTime(elapsedTime);
+    }
+    
+    formatTime(ms) {
+        const pad = num => num.toString().padStart(2, '0');
+        const hh = pad(Math.floor(ms / 3600000));
+        const mm = pad(Math.floor((ms % 3600000) / 60000));
+        const ss = pad(Math.floor((ms % 60000) / 1000));
+        const mss = pad(Math.floor((ms % 1000) / 10));
+        return `${hh}:${mm}:${ss}.${mss}`;
+    }
+
     draw(ctx,pause) {
        if(!pause){
         timer1++;
@@ -380,25 +374,24 @@ export default class Player {
     }
     eatCoin(coinc)
     {
-      // setTimeout(() => {
       if(this.tileMap.eatCoin(this.x,this.y))
       {
         coinc++;
-        coinSounds[currentSoundIndex].play();
-        currentSoundIndex = (currentSoundIndex + 1) % coinSounds.length; 
         coinc2 = coinc2 + coinc;
         console.log(coinc2);
         ScoreElement.innerHTML=`Score: ${coinc2}`;
         coinstore=coinc2;
       }
-    // }, index * 500); 
     }
-    
+
     #eatKey()
     {
       if(this.tileMap.eatKey(this.x,this.y))
       {
         
       }
-    }    
+    }
+    
+    
+    
   }
